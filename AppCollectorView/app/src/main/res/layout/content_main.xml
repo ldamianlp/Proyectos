@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_horizontal" app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:context="gadma.gob.ec.appcollectorview.MainActivity" tools:showIn="@layout/activity_main">
+    <ProgressBar
+        android:id="@+id/pbCargando"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+    <ScrollView android:id="@+id/login_formConsulta" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout android:id="@+id/email_login_form" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center">
+                <TextView android:id="@+id/lblUserConnect" android:text="Usuario: " android:layout_width="wrap_content"
+                    android:textSize="24dp"
+                    android:layout_height="wrap_content"  android:gravity="right"
+                    tools:ignore="HardcodedText,NestedWeights,RtlHardcoded" />
+                <EditText
+                    android:id="@+id/txtUsuarioConnectConsul"
+                    android:enabled="false"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"  android:gravity="right"
+                    tools:ignore="HardcodedText,NestedWeights,RtlHardcoded"
+                    />
+            </LinearLayout>
+
+            <TextView android:id="@+id/tvTipo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tipo" tools:ignore="HardcodedText" tools:layout_editor_absoluteX="16dp" tools:layout_editor_absoluteY="5dp" />
+            <RadioGroup
+                xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <RadioButton android:id="@+id/radio_urbano" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:onClick="onRadioButtonClicked" android:text="Urbano" tools:ignore="HardcodedText" />
+                <RadioButton android:id="@+id/radio_urbanoParroquia" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Urbano de Parroquia" tools:ignore="HardcodedText" />
+                <RadioButton android:id="@+id/radio_rustico" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Rustico" tools:ignore="HardcodedText" />
+            </RadioGroup>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:gravity="center">
+                <TextView android:id="@+id/lblPredio" android:text="Predio" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="left" tools:ignore="HardcodedText,NestedWeights,RtlHardcoded" />
+                <TextView android:id="@+id/lblIdPolitico" android:text="ID Político" android:visibility="invisible" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="left" tools:ignore="HardcodedText,RtlHardcoded" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtClaveCatastral"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:inputType="text"
+                    tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+
+                <Spinner
+                    android:id="@+id/spIdPolitico"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    tools:ignore="NestedScrolling,RtlHardcoded" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBuscar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Buscar"
+                    tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+
+                <Button
+                    android:id="@+id/btnNuevaConsulta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Nueva consulta"
+                    tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+
+                <Button
+                    android:id="@+id/btnCargarImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Cargar Imagenes"
+                    tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblArea"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="Area"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/lblCIU"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="CIU"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    tools:ignore="LabelFor" />
+
+                <EditText
+                    android:id="@+id/txtCIU"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    tools:ignore="LabelFor" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/lblApellidos" android:layout_width="109dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="left" android:text="Apellidos" tools:ignore="HardcodedText" />
+                <TextView android:id="@+id/lblNombres" android:layout_width="109dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="left" android:text="Nombres" tools:ignore="HardcodedText" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtApellidos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    tools:ignore="LabelFor" />
+                <EditText android:id="@+id/txtNombres" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="left" android:ems="10" android:inputType="number" tools:ignore="LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblCedula"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="Cedula"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/lblRUC"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="RUC"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtCedula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    tools:ignore="LabelFor" />
+
+                <EditText
+                    android:id="@+id/txtRUC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:inputType="number"
+                    tools:ignore="LabelFor" />
+            </LinearLayout>
+            <TableLayout
+                android:id="@+id/table_construcciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:stretchColumns="*">
+
+
+                <TableRow
+                    android:id="@+id/trConstrucciones"
+                    android:layout_width="wrap_content"
+                    android:background="#555555"
+                    android:layout_height="wrap_content" >
+                    <TextView android:id="@+id/rowBloque"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Bloque"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip">
+                    </TextView>
+                    <TextView android:id="@+id/rowPiso"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Piso"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowBloque">
+                    </TextView>
+                    <TextView android:id="@+id/rowTipologia"
+                        android:layout_width="140dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Tipologia"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowPiso">
+                    </TextView>
+                    <TextView android:id="@+id/rowEstado"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Estado"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowTipologia">
+                    </TextView>
+                    <TextView android:id="@+id/rowAnoCons"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Año Const."
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowEstado">
+                    </TextView>
+                    <TextView android:id="@+id/rowArea"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Área (m2)"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowAnoCons">
+                    </TextView>
+                    <TextView android:id="@+id/rowAreaCom"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Área Com. (m2)"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowArea">
+                    </TextView>
+                    <TextView android:id="@+id/rowAreaTot"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Área Tot. (m2)"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowAreaCom">
+                    </TextView>
+                    <TextView android:id="@+id/rowAvaluo"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Avaluo. ($)"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowAreaTot">
+                    </TextView>
+                </TableRow>
+
+            </TableLayout>
+            <TableLayout
+                android:id="@+id/table_escrituras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:id="@+id/trEscrituras"
+                    android:layout_width="wrap_content"
+                    android:background="#555555"
+                    android:layout_height="wrap_content" >
+                    <TextView android:id="@+id/rowPropAnterior"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Prop. Anterior"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip">
+                    </TextView>
+                    <TextView android:id="@+id/rowProvNotaria"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Prov. Notaria"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowPropAnterior">
+                    </TextView>
+                    <TextView android:id="@+id/rowCantNotaria"
+                        android:layout_width="140dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Cant. Notaria"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowProvNotaria">
+                    </TextView>
+                    <TextView android:id="@+id/rowNumNotaria"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="N° Notaria"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowCantNotaria">
+                    </TextView>
+                    <TextView android:id="@+id/rowFecNotaria"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Fec. Notaria"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowNumNotaria">
+                    </TextView>
+                    <TextView android:id="@+id/rowNumRegistro"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="N° Registro"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowFecNotaria">
+                    </TextView>
+
+                </TableRow>
+
+            </TableLayout>
+            <!--<TableLayout
+                android:id="@+id/table_inquilinato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp" >
+
+                <TableRow
+                    android:id="@+id/trInquilinato"
+                    android:layout_width="wrap_content"
+                    android:background="#555555"
+                    android:layout_height="wrap_content" >
+                    <TextView android:id="@+id/rowCIU"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="CIU"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip">
+                    </TextView>
+                    <TextView android:id="@+id/rowArrendatario"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Arrendatario"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowCIU">
+                    </TextView>
+                    <TextView android:id="@+id/rowNumAnios"
+                        android:layout_width="140dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Num. Años"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowArrendatario">
+                    </TextView>
+                    <TextView android:id="@+id/rowMetrosArriendo"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Metros Arriendo"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowNumAnios">
+                    </TextView>
+                    <TextView android:id="@+id/rowFecIngreso"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Fec. Ingreso"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowMetrosArriendo">
+                    </TextView>
+                    <TextView android:id="@+id/rowFecSalida"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Fec. Salida"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowFecIngreso">
+                    </TextView>
+                    <TextView android:id="@+id/rowTipoInmueble"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Tipo Inmueble"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowFecSalida">
+                    </TextView>
+                    <TextView android:id="@+id/rowAnio"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Año"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowTipoInmueble">
+                    </TextView>
+                    <TextView android:id="@+id/rowArriendo"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Arriendo"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowAnio">
+                    </TextView>
+                    <TextView android:id="@+id/rowImp"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Imp"
+                        android:textStyle="normal|bold"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dip"
+                        android:layout_toRightOf="@+id/rowArriendo">
+                    </TextView>
+                </TableRow>
+
+            </TableLayout>
+            -->
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

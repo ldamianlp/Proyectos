@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="gadma.gob.ec.appcollectorview.CargarImagenesActivity"
+    tools:showIn="@layout/activity_cargar_imagenes">
+    <ScrollView android:id="@+id/login_form_imagenes" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout android:id="@+id/email_login_form" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center">
+                <TextView android:id="@+id/lblUserConnect" android:text="Usuario: " android:layout_width="wrap_content"
+                    android:textSize="24dp"
+                    android:layout_height="wrap_content"  android:gravity="right"
+                    tools:ignore="HardcodedText,NestedWeights,RtlHardcoded" />
+                <EditText
+                    android:id="@+id/txtUsuarioConnectIMG"
+                    android:enabled="false"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"  android:gravity="right"
+                    tools:ignore="HardcodedText,NestedWeights,RtlHardcoded"
+                    />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:gravity="center">
+                <TextView android:id="@+id/lblIdPolitico" android:text="ID Político" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="left" tools:ignore="HardcodedText,RtlHardcoded" />
+                <TextView android:id="@+id/lblPredio" android:text="Predio" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="left" tools:ignore="HardcodedText,NestedWeights,RtlHardcoded" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center">
+                <EditText android:id="@+id/txtIDPoliticoImg" android:textSize="24dp"
+                    android:textStyle="bold" android:enabled="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" tools:ignore="NestedScrolling,RtlHardcoded" />
+                <EditText android:id="@+id/txtClaveCatastralImg" android:textSize="24dp"
+                    android:textStyle="bold" android:enabled="false" android:inputType="number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="100dp" android:layout_weight="1" android:gravity="center">
+                <Button android:id="@+id/btnCamera" android:layout_weight="1" android:onClick="camera" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Camara-FotoPredio"  android:gravity="left" tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+                <Button android:id="@+id/btnCargarImagen" android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="... Foto Predio"  android:gravity="left" tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+                <Button android:id="@+id/btnCargarDibujo" android:layout_weight="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="... Levantamiento planimétrico"  android:gravity="left" tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ivImagenPredio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_weight="50"
+                    android:background="@mipmap/consultar"
+                    android:gravity="center"
+                    android:text="Imagen Predio"
+                    tools:ignore="LabelFor,NestedWeights,RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/lblSeparador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:text=" : "
+                    android:textSize="24dp"
+                    tools:ignore="HardcodedText,NestedWeights,RtlHardcoded" />
+
+                <ImageView
+                    android:id="@+id/ivDibujo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_weight="50"
+                    android:background="@mipmap/consultar"
+                    android:gravity="center"
+                    android:text="Dibujo predio"
+                    tools:ignore="LabelFor,NestedWeights,RtlHardcoded" /> />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

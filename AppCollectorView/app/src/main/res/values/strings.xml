@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CATASTROS - CARGA ADJUNTOS</string>
+
+    <!-- Strings related to login -->
+    <string name="URL_WS">https://gadmatic.ambato.gob.ec/CatastroMovil/interno/WsCatastros?wsdl</string>
+    <string name="URL_WS_SYNCRO">https://gadmatic.ambato.gob.ec/CatastroMovil/interno/WsSyncro/</string>
+    <string name="CALIDAD_IMG">70</string>
+    <string name="prompt_email">Usuario</string>
+    <string name="prompt_password">Clave</string>
+    <string name="action_sign_in">Acceder</string>
+    <string name="action_sign_in_short">Acceder</string>
+    <string name="error_invalid_email">El Usuario ingresado es incorrecto</string>
+    <string name="error_invalid_password">La clave no es la correcta</string>
+    <string name="error_incorrect_password">La clave no es la correcta</string>
+    <string name="error_field_required">Campo requerido</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_migracion">MigracionActivity</string>
+    <string name="title_activity_syncronizar">SyncronizarActivity</string>
+    <string name="title_activity_cargar_imagenes">CargarImagenesActivity</string>
+</resources>
