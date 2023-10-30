@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+    version="4.0">
+   <!--
+   <listener>
+  	<listener-class>ec.gob.sheduler.ServletListener</listener-class>
+  </listener>
+  -->
+  
+    <display-name>WsGisPuente</display-name>
+    <session-config>
+  <session-timeout>2</session-timeout>
+ </session-config>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+    
+    
+    <security-constraint>
+  <display-name>Session</display-name>
+  <web-resource-collection>
+   <web-resource-name>SessionManager</web-resource-name>
+   <url-pattern>/SessionManager</url-pattern>
+   <http-method>GET</http-method>
+   <http-method>POST</http-method>
+   <http-method>PUT</http-method>
+   <http-method>DELETE</http-method>
+   <http-method>HEAD</http-method>
+   <http-method>OPTIONS</http-method>
+   <http-method>TRACE</http-method>
+  </web-resource-collection>
+ </security-constraint>
+ 
+ 
+ 
+    <security-constraint>
+    <display-name>usuarios_constraint</display-name>
+    <web-resource-collection>
+      <web-resource-name>usuarios_collection</web-resource-name>
+      <url-pattern>/rest/metodo/*</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+    <!-- <auth-constraint>
+      <description>usuarios_auth</description>
+      <role-name>ROL_FINADOS</role-name>
+    </auth-constraint> -->
+    
+    <user-data-constraint>
+   <transport-guarantee>NONE</transport-guarantee>
+  </user-data-constraint>
+  
+  </security-constraint>
+   <security-constraint>
+  <display-name>Publico</display-name>
+  <web-resource-collection>
+   <web-resource-name>Inicio</web-resource-name>   
+   
+   <url-pattern>/rest/pruebas/*</url-pattern>  
+   <http-method>POST</http-method>
+   <http-method>GET</http-method>
+  </web-resource-collection>
+ </security-constraint>
+ 
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>JBoss JMX Console</realm-name>
+  </login-config>
+  <security-role>
+    <description>ws_usuario</description>
+    <role-name>ROL_FINADOS</role-name>
+  </security-role>
+
+
+  <env-entry>
+    <env-entry-name>UserWsGis</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>test</env-entry-value>
+  </env-entry>
+  <env-entry>
+    <env-entry-name>PasswordWsGis</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>test</env-entry-value>
+  </env-entry>
+  
+  
+  
+</web-app>
