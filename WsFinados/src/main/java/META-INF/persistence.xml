@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="FinadosPU" transaction-type="JTA">
+  	<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
+  	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+     <jta-data-source>java:jboss/datasources/webServiceSeguDS</jta-data-source>     
+     
+     <class>ec.gob.object.ObjParCantones</class>
+     <class>ec.gob.object.ObjParProvincia</class>
+     <class>ec.gob.object.ObjSpFinaNegReq</class>
+     <class>ec.gob.object.ObjSpFinaNegReqPK</class>
+     <class>ec.gob.object.ObjSpFinaRequisito</class>
+     <class>ec.gob.object.ParCantones</class>
+     <class>ec.gob.object.ParParroquia</class>
+     <class>ec.gob.object.ParProvincia</class>
+     <class>ec.gob.object.ParProvinciaParCantones</class>
+     <class>ec.gob.object.SpFinaCatNegocio</class>
+     <class>ec.gob.object.SpFinaEvento</class>     
+     <class>ec.gob.object.objTmp_finados</class>
+     <class>ec.gob.object.SpFinaExpositor</class>
+     <class>ec.gob.object.ParDirectorio</class>
+     <class>ec.gob.object.TmpFile</class>
+     <class>ec.gob.object.TmpFilePK</class>
+     <class>ec.gob.object.SpFinaSolicitud</class>
+     <class>ec.gob.object.SpFinaSolicitudDet</class>
+     <class>ec.gob.object.SpFinaSolReq</class>
+     <class>ec.gob.object.SpFinaSolReqPK</class>
+     <class>ec.gob.object.PaMaParametro</class>
+     <class>ec.gob.object.VwFinadoPuestosAsig</class>
+	<exclude-unlisted-classes>false</exclude-unlisted-classes>     
+     <properties>
+     	<!-- <property name="hibernate.show_sql" value="${hibernate.show.sql}"/> -->
+     	<property name="hibernate.format_sql" value="true"/>
+     	<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+     	<property name="hibernate.show_sql" value="false" />
+   		<property name="hibernate.hbm2ddl.auto" value="none" />
+   		<property name="hibernate.jdbc.time_zone" value="UTC"/>
+     </properties>
+	</persistence-unit>
+</persistence>
